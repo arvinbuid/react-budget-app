@@ -1,11 +1,20 @@
+import {RouterProvider, createBrowserRouter} from "react-router-dom";
+import {Dashboard, dashboardLoader} from "./pages/Dashboard";
+import {Error} from "./pages/Error";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Dashboard />,
+    loader: dashboardLoader,
+    errorElement: <Error />,
+  },
+]);
+
 function App() {
   return (
     <>
-      <div className='w-screen h-screen'>
-        <div className='flex justify-center mt-8'>
-          <h1 className='text-3xl font-semibold'>React Budget App</h1>
-        </div>
-      </div>
+      <RouterProvider router={router} />
     </>
   );
 }
