@@ -18,7 +18,7 @@ export async function dashboardAction({request}) {
   const formData = Object.fromEntries(data);
 
   try {
-    // throw new Error("Its joever");
+    throw new Error("Its joever");
     localStorage.setItem("userName", JSON.stringify(formData.userName));
     return toast.success(`Welcome, ${formData.userName}`);
   } catch (error) {
