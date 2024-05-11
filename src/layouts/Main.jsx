@@ -17,7 +17,7 @@ export const Main = () => {
   return (
     <section className='w-screen h-screen overflow-x-hidden'>
       <main className='flex flex-col justify-center items-center px-4'>
-        <Nav userName={userName} /> 
+        <Nav userName={userName} />
         <Outlet />
       </main>
       <footer className='w-screen h-[28px] bg-slate-950 py-8'>

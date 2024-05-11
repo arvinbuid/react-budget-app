@@ -2,6 +2,7 @@ import {RouterProvider, createBrowserRouter} from "react-router-dom";
 import {Dashboard, dashboardLoader} from "./pages/Dashboard";
 import {Error} from "./pages/Error";
 import {Main, mainLoader} from "./layouts/Main";
+import {logoutAction} from "./actions/logout";
 
 const router = createBrowserRouter([
   {
@@ -18,7 +19,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/logout",
-        element: <h1 className='text-center text-3xl font-semibold'>Logged out!</h1>,
+        action: logoutAction,
       },
     ],
   },

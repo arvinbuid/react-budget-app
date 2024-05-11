@@ -14,10 +14,14 @@ export const Dashboard = () => {
   const {userName} = useLoaderData();
 
   return (
-    <div className='w-screen h-screen'>
-      <div className='flex flex-col justify-center items-center mt-8'>
-        <h1 className='text-3xl font-semibold'>Dashboard</h1>
-        
+    <div className='w-[80vw] h-screen'>
+      <div className='w-[90%] mt-[24px] '>
+        <h1 className='text-3xl font-semibold'>
+          Welcome&nbsp;
+          <span className='text-blue-700'>
+            {userName}
+          </span>
+        </h1>
       </div>
     </div>
   );
