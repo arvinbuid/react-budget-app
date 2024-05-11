@@ -17,10 +17,8 @@ const router = createBrowserRouter([
         errorElement: <Error />,
       },
       {
-        path: "/about",
-        element: <h1>About</h1>,
-        loader: dashboardLoader,
-        errorElement: <Error />,
+        path: "/logout",
+        element: <h1 className='text-center text-3xl font-semibold'>Logged out!</h1>,
       },
     ],
   },
