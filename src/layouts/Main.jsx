@@ -3,6 +3,7 @@ import {Outlet, useLoaderData} from "react-router-dom";
 
 // helper import functions
 import {fetchData} from "../helpers";
+import {Nav} from "../components/Nav";
 
 // loader
 export function mainLoader() {
@@ -15,7 +16,8 @@ export const Main = () => {
 
   return (
     <section className='w-screen h-screen overflow-x-hidden'>
-      <main className='flex flex-col justify-center items-center mt-8 px-4'>
+      <main className='flex flex-col justify-center items-center px-4'>
+        <Nav />
         <h1 className='text-3xl font-semibold mb-4'>Main</h1>
         <p className='text-xl'>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum vitae laboriosam
