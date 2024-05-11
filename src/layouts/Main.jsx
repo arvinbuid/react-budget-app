@@ -6,6 +6,7 @@ import {fetchData} from "../helpers";
 import {Nav} from "../components/Nav";
 import {ToastContainer} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import {Footer} from "../components/Footer";
 
 // loader
 export function mainLoader() {
@@ -22,12 +23,8 @@ export const Main = () => {
         <Nav userName={userName} />
         <ToastContainer />
         <Outlet />
+        <Footer />
       </main>
-      <footer className='w-screen h-[30px] bg-slate-950 py-8'>
-        <div className='flex flex-col items-center'>
-          <h1 className='text-slate-100 font-normal'>2024 Budget App. All Right Reserved.</h1>
-        </div>
-      </footer>
     </section>
   );
 };

@@ -1,8 +1,10 @@
-// react-router-dom imports
+// rrd imports
 import {useLoaderData} from "react-router-dom";
 
 // helper import functions
 import {fetchData} from "../helpers";
+import {Intro} from "../components/Intro";
+import {toast} from "react-toastify";
 
 // loader
 export function dashboardLoader() {
@@ -10,19 +12,25 @@ export function dashboardLoader() {
   return {userName};
 }
 
+// action
+export async function dashboardAction({request}) {
+  const data = await request.formData();
+  const formData = Object.fromEntries(data);
+
+  try {
+    localStorage.setItem("userName", JSON.stringify(formData.userName));
+    return toast.success(`Welcome, ${formData.userName}`);
+  } catch (error) {
+    throw new Error("There is a problem creating your account.");
+  }
+}
+
 export const Dashboard = () => {
   const {userName} = useLoaderData();
 
   return (
     <div className='w-[80vw] h-screen'>
-      <div className='w-[90%] mt-[24px] '>
-        <h1 className='text-3xl font-semibold'>
-          Welcome&nbsp;
-          <span className='text-blue-700'>
-            {userName}
-          </span>
-        </h1>
-      </div>
+      <div className='w-[90%] mt-[24px] '>{userName ? <p>{userName}</p> : <Intro />}</div>
     </div>
   );
 };
