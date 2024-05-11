@@ -6,7 +6,7 @@ import {CurrencyDollarIcon, TrashIcon} from "@heroicons/react/16/solid";
 
 export const Nav = ({userName}) => {
   return (
-    <nav className='w-screen h-[4rem] px-[64px] pt-[24px] 2xs:mb-10 lg:mb-0 flex items-center '>
+    <nav className='w-screen h-[4rem] px-[64px] pt-[24px] 2xs:mb-10 flex items-center '>
       <div className='flex items-center w-[100%] justify-between'>
         <NavLink to='/'>
           <div className='flex items-center'>
