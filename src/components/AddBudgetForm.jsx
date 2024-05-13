@@ -44,7 +44,7 @@ export const AddBudgetForm = () => {
             {/* Create budget button */}
             <button
               type='submit'
-              className='bg-slate-900 text-slate-100 flex items-center gap-2 px-4 py-2 2xs:w-[170px] md:w-[180px] mb-[12px]'
+              className='bg-slate-900 text-slate-100 flex items-center gap-2 px-4 py-2 2xs:w-[170px] md:w-[175px] mb-[12px] rounded-md'
             >
               <p className='text-md'>Create budget</p>
               <CurrencyDollarIcon className='size-4' />
