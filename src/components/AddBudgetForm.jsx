@@ -32,7 +32,7 @@ export const AddBudgetForm = () => {
                 <input
                   type='text'
                   name='newBudget'
-                  id='newBudgets'
+                  id='newBudget'
                   className='w-[90%] h-[40px] border-black border-2 rounded-md px-4 focus:outline-none focus:border-blue-600 focus:ring-1'
                   placeholder='e.g., Groceries'
                   required
@@ -51,14 +51,14 @@ export const AddBudgetForm = () => {
                   name='newBudgetAmount'
                   id='newBudgetAmount'
                   className='w-[90%] h-[40px] border-black border-2 rounded-md px-4 focus:outline-none focus:border-blue-600 focus:ring-1'
-                  placeholder='e.g., $350'
+                  placeholder='e.g., ₱350'
                   required
                   inputMode='decimal'
                 />
               </div>
             </label>
 
-            {/* hidden input */}
+            {/* Hidden input to create budget */}
             <input type='hidden' name='_action' value='createBudget' />
 
             {/* Create budget button */}

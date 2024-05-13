@@ -2,7 +2,7 @@
 import {useLoaderData} from "react-router-dom";
 
 // helper import functions
-import {createBudget, delaySubmit, fetchData} from "../helpers";
+import {createBudget, createExpense, delaySubmit, fetchData} from "../helpers";
 import {Intro} from "../components/Intro";
 import {toast} from "react-toastify";
 import {AddBudgetForm} from "../components/AddBudgetForm";
@@ -42,16 +42,28 @@ export async function dashboardAction({request}) {
       throw new Error("There is a problem creating your Budget.");
     }
   }
-}
 
-// Budgeting is the key to financial stability and happiness.
-//
+  // create expense
+  if (_action === "createExpense") {
+    try {
+      createExpense({
+        name: values.newExpense,
+        amount: values.newExpenseAmount,
+        budgetId: values.newExpenseBudget,
+      });
+
+      return toast.success(`Expense ${values.newExpense} created!`);
+    } catch (error) {
+      throw new Error("There is a problem creating your expense.");
+    }
+  }
+}
 
 export const Dashboard = () => {
   const {userName, budgets} = useLoaderData();
 
   return (
-    <div className='w-[80vw] h-screen '>
+    <div className='w-[80vw] h-auto'>
       <div className='w-[90%] mt-[24px]'>
         {userName ? (
           <div className='w-full h-[90vh] flex flex-col'>

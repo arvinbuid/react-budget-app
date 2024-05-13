@@ -23,7 +23,7 @@ export const Main = () => {
         <Nav userName={userName} />
         <ToastContainer />
         <Outlet />
-        <Footer />
+        {/* <Footer /> */}
       </main>
     </section>
   );
