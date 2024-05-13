@@ -7,7 +7,7 @@ export const Error = () => {
 
   return (
     <section className='w-screen h-screen'>
-      <div className='flex flex-col justify-center gap-4 items-center h-[70vh] bg-slate-300'>
+      <div className='flex flex-col justify-center gap-4 items-center h-[70vh] '>
         <h1 className='px-4 2xs:text-2xl sm:text-4xl text-center font-semibold text-red-600'>
           Uh oh! There was an error.
         </h1>

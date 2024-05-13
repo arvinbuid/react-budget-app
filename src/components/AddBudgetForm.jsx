@@ -10,8 +10,8 @@ export const AddBudgetForm = () => {
 
           <Form method='post' className='flex flex-col gap-4 py-4'>
             {/* Budget Name */}
-            <div className='w-full h-[100px] flex flex-col justify-center'>
-              <label htmlFor='newBudget'>
+            <label htmlFor='newBudget'>
+              <div className='w-full h-[100px] flex flex-col justify-center'>
                 <h2 className='text-lg font-semibold mb-2'>Budget Name</h2>
                 <input
                   type='text'
@@ -21,12 +21,13 @@ export const AddBudgetForm = () => {
                   placeholder='e.g., Groceries'
                   required
                 />
-              </label>
-            </div>
+              </div>
+            </label>
 
             {/* Amount */}
-            <div className='w-full h-[100px] flex flex-col justify-center'>
-              <label htmlFor='newBudgetAmount'>
+
+            <label htmlFor='newBudgetAmount'>
+              <div className='w-full h-[100px] flex flex-col justify-center'>
                 <h2 className='text-lg font-semibold mb-2'>Amount</h2>
                 <input
                   type='number'
@@ -38,8 +39,11 @@ export const AddBudgetForm = () => {
                   required
                   inputMode='decimal'
                 />
-              </label>
-            </div>
+              </div>
+            </label>
+
+            {/* hidden input */}
+            <input type='hidden' name='_action' value='createBudget' />
 
             {/* Create budget button */}
             <button

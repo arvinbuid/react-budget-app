@@ -26,6 +26,10 @@ export const Intro = () => {
               className='border border-slate-800 px-2 py-1 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 w-[200px]'
             />
 
+            {/* hidden input */}
+            <input type='hidden' name='_action' value='newUser' />
+
+            {/* Create Account */}
             <button className='text-slate-100 bg-black px-4 py-2 rounded-sm w-[160px] 2xs:mb-10 sm:mb-0'>
               <div className='flex items-center gap-2'>
                 <span className='text-sm'>Create Account</span>
