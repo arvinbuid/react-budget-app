@@ -6,6 +6,7 @@ import {createBudget, delaySubmit, fetchData} from "../helpers";
 import {Intro} from "../components/Intro";
 import {toast} from "react-toastify";
 import {AddBudgetForm} from "../components/AddBudgetForm";
+import {AddExpenseForm} from "../components/AddExpenseForm";
 
 // loader
 export function dashboardLoader() {
@@ -43,6 +44,9 @@ export async function dashboardAction({request}) {
   }
 }
 
+// Budgeting is the key to financial stability and happiness.
+//
+
 export const Dashboard = () => {
   const {userName, budgets} = useLoaderData();
 
@@ -54,13 +58,21 @@ export const Dashboard = () => {
             <h1 className='text-4xl font-bold'>
               Welcome back, <span className='text-blue-600'>{userName}</span>
             </h1>
-            <div className='grid grid-cols-1'>
-              {/* {budgets ? () : ()} */}
-              <div>
+            <div>
+              {budgets && budgets.length > 0 ? (
                 <div>
                   <AddBudgetForm />
+                  <AddExpenseForm budgets={budgets} />
                 </div>
-              </div>
+              ) : (
+                <>
+                  <div className='flex flex-col pt-2'>
+                    <p>Budgeting is the key to financial stability and happiness.</p>
+                    <p>Create your budget now to get started!</p>
+                    <AddBudgetForm />
+                  </div>
+                </>
+              )}
             </div>
           </div>
         ) : (
