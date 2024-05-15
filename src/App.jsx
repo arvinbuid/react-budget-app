@@ -4,6 +4,7 @@ import {Error} from "./pages/Error";
 import {Main, mainLoader} from "./layouts/Main";
 import {logoutAction} from "./actions/logout";
 import {Footer} from "./components/Footer";
+import ExpensesPage, {expensesLoader} from "./pages/ExpensesPage";
 
 const router = createBrowserRouter([
   {
@@ -20,12 +21,17 @@ const router = createBrowserRouter([
         errorElement: <Error />,
       },
       {
-        path: "/logout",
+        path: "expenses",
+        element: <ExpensesPage />,
+        loader: expensesLoader,
+      },
+      {
+        path: "logout",
         action: logoutAction,
       },
-      { 
-        element: <Footer />,
-      },
+      // {
+      //   element: <Footer />,
+      // },
     ],
   },
 ]);

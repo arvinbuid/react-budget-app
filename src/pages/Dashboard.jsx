@@ -101,7 +101,7 @@ export const Dashboard = () => {
 
                     {/* View all expenses button */}
                     {expenses.length > 8 && (
-                      <Link to='expenses'>
+                      <Link to='/expenses'>
                         <button className='bg-slate-900 text-slate-100 flex items-center gap-2 px-4 py-2 rounded-md text-md mb-6'>
                           <p>View all expenses</p>
                         </button>
