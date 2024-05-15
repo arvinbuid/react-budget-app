@@ -1,7 +1,8 @@
-import {formatCurrency} from "../helpers";
+import {calculateSpentByBudget, formatCurrency, formatPercentage} from "../helpers";
 
 export const BudgetItem = ({budget}) => {
   const {id, name, amount} = budget;
+  const spent = calculateSpentByBudget(id);
 
   return (
     <section>
@@ -14,12 +15,17 @@ export const BudgetItem = ({budget}) => {
           </p>
         </div>
         <div className='flex flex-col '>
-          <progress max={amount} value={100} className='w-full'>
-            {/* percentage */}
+          <progress
+            max={amount}
+            value={spent}
+            className='w-full rounded-full custom-progress'
+            
+          >
+            {formatPercentage(spent / amount)}
           </progress>
           <div className='flex justify-between'>
-            <small>...spent</small>
-            <small>...remaining</small>
+            <small>{formatCurrency(spent)} spent</small>
+            <small>{formatCurrency(amount - spent)} remaining</small>
           </div>
         </div>
       </div>

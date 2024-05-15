@@ -13,7 +13,8 @@ import {BudgetItem} from "../components/BudgetItem";
 export function dashboardLoader() {
   const userName = fetchData("userName");
   const budgets = fetchData("budgets");
-  return {userName, budgets};
+  const expenses = fetchData("expenses");
+  return {userName, budgets, expenses};
 }
 
 // actions
@@ -61,7 +62,7 @@ export async function dashboardAction({request}) {
 }
 
 export const Dashboard = () => {
-  const {userName, budgets} = useLoaderData();
+  const {userName, budgets, expenses} = useLoaderData();
 
   return (
     <div className='w-screen h-auto px-12'>
@@ -74,17 +75,24 @@ export const Dashboard = () => {
             <div>
               {budgets && budgets.length > 0 ? (
                 <div className='flex gap-4'>
+                  {/* Add budget and add expense */}
                   <div className='w-[600px] '>
                     <AddBudgetForm />
                     <AddExpenseForm budgets={budgets} />
                   </div>
-
+                  {/* Add budget items */}
                   <div className='flex flex-col gap-[16px] w-full'>
                     <h2 className='text-4xl font-bold mb-[24px]'>Existing Budgets</h2>
                     {budgets.map((budget) => (
                       <BudgetItem key={budget.id} budget={budget} />
                     ))}
                   </div>
+                  {/* Table */}
+                  {expenses && expenses.length > 0 && (
+                    <div>
+                      <h2 className='text-4xl font-bold mb-[24px]'>Recent Expenses</h2>
+                    </div>
+                  )}
                 </div>
               ) : (
                 <>

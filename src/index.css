@@ -7,3 +7,28 @@
 * {
   font-family: "Inter", sans-serif;
 }
+
+.custom-progress {
+  /* Hide the default appearance */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+} 
+
+/* Customize color and border of progress bar */
+
+.custom-progress::-webkit-progress-bar {
+  background-color: #e5e7eb; /* Tailwind's gray-200 color for the background */
+  border-radius: 9999px; /* Full rounding */
+  overflow: hidden;
+}
+
+.custom-progress::-webkit-progress-value {
+  background-color: #3b82f6; /* Tailwind's blue-500 color for the progress indicator */
+  border-radius: 9999px; /* Full rounding */
+}
+
+.custom-progress::-moz-progress-bar {
+  background-color: #3b82f6; /* Tailwind's blue-500 color for Firefox */
+  border-radius: 9999px; /* Full rounding */
+}
