@@ -7,6 +7,7 @@ import {Intro} from "../components/Intro";
 import {toast} from "react-toastify";
 import {AddBudgetForm} from "../components/AddBudgetForm";
 import {AddExpenseForm} from "../components/AddExpenseForm";
+import {BudgetItem} from "../components/BudgetItem";
 
 // loader
 export function dashboardLoader() {
@@ -63,7 +64,7 @@ export const Dashboard = () => {
   const {userName, budgets} = useLoaderData();
 
   return (
-    <div className='w-[80vw] h-auto'>
+    <div className='w-screen h-auto px-12'>
       <div className='w-[90%] mt-[24px]'>
         {userName ? (
           <div className='w-full h-[90vh] flex flex-col'>
@@ -72,9 +73,18 @@ export const Dashboard = () => {
             </h1>
             <div>
               {budgets && budgets.length > 0 ? (
-                <div>
-                  <AddBudgetForm />
-                  <AddExpenseForm budgets={budgets} />
+                <div className='flex gap-4'>
+                  <div className='w-[600px] '>
+                    <AddBudgetForm />
+                    <AddExpenseForm budgets={budgets} />
+                  </div>
+
+                  <div className='flex flex-col gap-[16px] w-full'>
+                    <h2 className='text-4xl font-bold mb-[24px]'>Existing Budgets</h2>
+                    {budgets.map((budget) => (
+                      <BudgetItem key={budget.id} budget={budget} />
+                    ))}
+                  </div>
                 </div>
               ) : (
                 <>
