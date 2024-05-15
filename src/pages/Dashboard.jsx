@@ -8,6 +8,7 @@ import {toast} from "react-toastify";
 import {AddBudgetForm} from "../components/AddBudgetForm";
 import {AddExpenseForm} from "../components/AddExpenseForm";
 import {BudgetItem} from "../components/BudgetItem";
+import {Table} from "../components/Table";
 
 // loader
 export function dashboardLoader() {
@@ -66,7 +67,7 @@ export const Dashboard = () => {
 
   return (
     <div className='w-screen h-auto px-12'>
-      <div className='w-[90%] mt-[24px]'>
+      <div className='w-full mt-[24px]'>
         {userName ? (
           <div className='w-full h-[90vh] flex flex-col'>
             <h1 className='text-4xl font-bold'>
@@ -76,23 +77,26 @@ export const Dashboard = () => {
               {budgets && budgets.length > 0 ? (
                 <div className='flex gap-4'>
                   {/* Add budget and add expense */}
-                  <div className='w-[600px] '>
+                  <div className='w-[50%]'>
                     <AddBudgetForm />
                     <AddExpenseForm budgets={budgets} />
                   </div>
                   {/* Add budget items */}
-                  <div className='flex flex-col gap-[16px] w-full'>
-                    <h2 className='text-4xl font-bold mb-[24px]'>Existing Budgets</h2>
-                    {budgets.map((budget) => (
-                      <BudgetItem key={budget.id} budget={budget} />
-                    ))}
-                  </div>
-                  {/* Table */}
-                  {expenses && expenses.length > 0 && (
-                    <div>
-                      <h2 className='text-4xl font-bold mb-[24px]'>Recent Expenses</h2>
+                  <div className='flex flex-col gap-[36px] w-[60%] px-0 lg:px-4'>
+                    <div className='flex flex-col gap-[16px] w-[50%]'>
+                      <h2 className='text-4xl font-bold mb-[24px]'>Existing Budgets</h2>
+                      {budgets.map((budget) => (
+                        <BudgetItem key={budget.id} budget={budget} />
+                      ))}
                     </div>
-                  )}
+                    {/* Table */}
+                    {expenses && expenses.length > 0 && (
+                      <div className='w-[50%]'>
+                        <h2 className='text-4xl font-bold mb-[50px]'>Recent Expenses</h2>
+                        <Table expenses={expenses.sort((a, b) => b.createdAt - a.createdAt)} />
+                      </div>
+                    )}
+                  </div>
                 </div>
               ) : (
                 <>
