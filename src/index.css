@@ -13,7 +13,7 @@
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-} 
+}
 
 /* Customize color and border of progress bar */
 
@@ -31,4 +31,40 @@
 .custom-progress::-moz-progress-bar {
   background-color: #3b82f6; /* Tailwind's blue-500 color for Firefox */
   border-radius: 9999px; /* Full rounding */
+}
+
+/* Table styling
+/* chart component */
+.table {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+}
+
+tr:nth-child(odd) {
+  background-color: #eff6ff;
+}
+
+td {
+  border: none;
+}
+
+thead > tr:nth-child(odd) {
+  background-color: white;
+}
+
+td,
+th {
+  text-align: center;
+  padding: 18px 20px;
+}
+
+table .btn {
+  margin-inline: auto;
+}
+
+table a {
+  text-decoration: none;
 }

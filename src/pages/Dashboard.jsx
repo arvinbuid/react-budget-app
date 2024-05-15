@@ -1,5 +1,5 @@
 // rrd imports
-import {useLoaderData} from "react-router-dom";
+import {Link, useLoaderData} from "react-router-dom";
 
 // helper import functions
 import {createBudget, createExpense, delaySubmit, fetchData} from "../helpers";
@@ -93,8 +93,17 @@ export const Dashboard = () => {
                     {expenses && expenses.length > 0 && (
                       <div className='w-[50%]'>
                         <h2 className='text-4xl font-bold mb-[50px]'>Recent Expenses</h2>
-                        <Table expenses={expenses.sort((a, b) => b.createdAt - a.createdAt)} />
+                        <Table
+                          expenses={expenses.sort((a, b) => b.createdAt - a.createdAt).slice(0, 8)}
+                        />
                       </div>
+                    )}
+                    {expenses.length > 8 && (
+                      <Link to='expenses'>
+                        <button className='bg-slate-900 text-slate-100 flex items-center gap-2 px-4 py-2 rounded-md text-md mb-6'>
+                          <p>View all expenses</p>
+                        </button>
+                      </Link>
                     )}
                   </div>
                 </div>

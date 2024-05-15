@@ -4,7 +4,7 @@ export const Table = ({expenses}) => {
   return (
     <section>
       <table>
-        <thead>
+        <thead className='text-md'>
           <tr>
             {["Name", "Amount", "Date"].map((i, index) => (
               <th key={index}>{i}</th>
