@@ -1,3 +1,5 @@
+import {formatCurrency} from "../helpers";
+
 export const BudgetItem = ({budget}) => {
   const {id, name, amount} = budget;
 
@@ -7,8 +9,8 @@ export const BudgetItem = ({budget}) => {
         <div className='flex justify-between text-md font-bold'>
           <p>{name}</p>
           <p>
-            {amount} <br />
-            <span className="font-normal text-sm">Budgeted</span>
+            {formatCurrency(amount)} <br />
+            <span className='font-normal text-sm'>Budgeted</span>
           </p>
         </div>
         <div className='flex flex-col '>
