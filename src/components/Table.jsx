@@ -6,7 +6,7 @@ export const Table = ({expenses}) => {
       <table>
         <thead className='text-md'>
           <tr>
-            {["Name", "Amount", "Date"].map((i, index) => (
+            {["Name", "Amount", "Date", "Budget", "test"].map((i, index) => (
               <th key={index}>{i}</th>
             ))}
           </tr>
