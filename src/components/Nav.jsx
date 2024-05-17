@@ -11,11 +11,11 @@ export const Nav = ({userName}) => {
         <NavLink to='/'>
           <div className='flex items-center'>
             <div>
-              <CurrencyDollarIcon className='size-5 text-blue-500 mr-1' />
+              <CurrencyDollarIcon className='size-10 lg:size-6 text-blue-500 mr-1' />
             </div>
 
-            <span className='text-2xl font-semibold'>Budget</span>
-            <p className='text-2xl text-blue-700 font-bold'>App</p>
+            <span className='text-2xl font-semibold hidden lg:block'>Budget</span>
+            <p className='text-2xl text-blue-700 font-bold hidden lg:block'>App</p>
           </div>
         </NavLink>
 

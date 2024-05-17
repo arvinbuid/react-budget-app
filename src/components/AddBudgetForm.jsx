@@ -20,7 +20,7 @@ export const AddBudgetForm = () => {
 
   return (
     <div className='mt-[36px] flex 2xs:px-2 md:px-0'>
-      <div className='w-[560px] rounded-2xl shadow-xl flex items-center justify-center py-2'>
+      <div className='2xs:w-[600px] lg:w-[560px] rounded-2xl shadow-xl flex items-center justify-center py-2'>
         <div className='w-[96%] h-auto border-dashed border-2 border-black rounded-2xl flex flex-col px-6'>
           <p className='font-bold text-xl mt-[12px]'>Create budget</p>
 

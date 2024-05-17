@@ -80,29 +80,31 @@ export const Dashboard = () => {
   const {userName, budgets, expenses} = useLoaderData();
 
   return (
-    <div className='w-screen h-auto px-12'>
+    <div className='w-screen h-auto px-12 m-auto'>
       <div className='w-full mt-[24px]'>
         {userName ? (
-          <div className='w-full h-[90vh] flex flex-col'>
+          <div className='w-[90%] flex flex-col m-auto'>
             <h1 className='text-4xl font-bold'>
               Welcome back, <span className='text-blue-600'>{userName}</span>
             </h1>
             <div>
               {budgets && budgets.length > 0 ? (
-                <div className='flex gap-4'>
+                <div className='flex flex-col items-start lg:items-start lg:flex-row gap-12'>
                   {/* Add budget and add expense */}
-                  <div className='w-[50%]'>
+                  <div className='grid grid-cols-1 lg:flex flex-col'>
                     <AddBudgetForm />
                     <AddExpenseForm budgets={budgets} />
                   </div>
                   {/* Add budget items */}
-                  <div className='flex flex-col gap-[36px] w-[60%] px-0 lg:px-4'>
-                    <div className='flex flex-col gap-[16px] w-[50%]'>
-                      <h2 className='text-4xl font-bold mb-[24px]'>Existing Budgets</h2>
+
+                  <div className='grid grid-cols-1 lg:flex flex-col gap-6 '>
+                    <h2 className='text-4xl font-bold mb-[24px]'>Existing Budgets</h2>
+                    <div className="flex flex-col gap-2">
                       {budgets.map((budget) => (
                         <BudgetItem key={budget.id} budget={budget} />
                       ))}
                     </div>
+
                     {/* Table */}
                     {expenses && expenses.length > 0 && (
                       <div className='w-[50%]'>
