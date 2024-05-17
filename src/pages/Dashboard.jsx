@@ -2,7 +2,7 @@
 import {Link, useLoaderData} from "react-router-dom";
 
 // helper import functions
-import {createBudget, createExpense, delaySubmit, fetchData} from "../helpers";
+import {createBudget, createExpense, delaySubmit, fetchData, deleteItem} from "../helpers";
 import {Intro} from "../components/Intro";
 import {toast} from "react-toastify";
 import {AddBudgetForm} from "../components/AddBudgetForm";
@@ -60,6 +60,20 @@ export async function dashboardAction({request}) {
       throw new Error("There is a problem creating your expense.");
     }
   }
+
+  // delete expense
+  if (_action === "deleteExpense") {
+    try {
+      deleteItem({
+        key: "expenses",
+        id: values.expenseId,
+      });
+
+      return toast.success(`Expense deleted`);
+    } catch (error) {
+      throw new Error("There was a problem deleting your expense.");
+    }
+  }
 }
 
 export const Dashboard = () => {
@@ -96,16 +110,15 @@ export const Dashboard = () => {
                         <Table
                           expenses={expenses.sort((a, b) => b.createdAt - a.createdAt).slice(0, 8)}
                         />
+                        {/* View all expenses button */}
+                        {expenses.length > 8 && (
+                          <Link to='/expenses'>
+                            <button className='bg-slate-900 text-slate-100 flex items-center gap-2 px-4 py-2 rounded-md text-md mb-6'>
+                              <p>View all expenses</p>
+                            </button>
+                          </Link>
+                        )}
                       </div>
-                    )}
-
-                    {/* View all expenses button */}
-                    {expenses.length > 8 && (
-                      <Link to='/expenses'>
-                        <button className='bg-slate-900 text-slate-100 flex items-center gap-2 px-4 py-2 rounded-md text-md mb-6'>
-                          <p>View all expenses</p>
-                        </button>
-                      </Link>
                     )}
                   </div>
                 </div>
