@@ -1,12 +1,12 @@
 import {ExpenseItem} from "./ExpenseItem";
 
-export const Table = ({expenses}) => {
+export const Table = ({expenses, showBudget = true}) => {
   return (
     <section>
       <table>
         <thead className='text-md'>
           <tr>
-            {["Name", "Amount", "Date", "Budget", "test"].map((i, index) => (
+            {["Name", "Amount", "Date", showBudget ? "Budget" : ""].map((i, index) => (
               <th key={index}>{i}</th>
             ))}
           </tr>
@@ -14,7 +14,7 @@ export const Table = ({expenses}) => {
         <tbody>
           {expenses.map((expense) => (
             <tr key={expense.id} className='text-sm'>
-              <ExpenseItem expense={expense} />
+              <ExpenseItem expense={expense} showBudget={showBudget} />
             </tr>
           ))}
         </tbody>

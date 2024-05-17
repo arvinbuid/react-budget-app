@@ -5,7 +5,7 @@ import {Main, mainLoader} from "./layouts/Main";
 import {logoutAction} from "./actions/logout";
 import {Footer} from "./components/Footer";
 import ExpensesPage, {expensesAction, expensesLoader} from "./pages/ExpensesPage";
-import { BudgetPage } from "./pages/BudgetPage";
+import {BudgetPage, budgetAction, budgetLoader} from "./pages/BudgetPage";
 
 const router = createBrowserRouter([
   {
@@ -24,14 +24,16 @@ const router = createBrowserRouter([
       {
         path: "budget/:id",
         element: <BudgetPage />,
-        // loader: expensesLoader,
-        // action: expensesAction, 
+        loader: budgetLoader,
+        action: budgetAction,
+        errorElement: <Error />,
       },
       {
         path: "expenses",
         element: <ExpensesPage />,
         loader: expensesLoader,
-        action: expensesAction, 
+        action: expensesAction,
+        errorElement: <Error />,
       },
       {
         path: "logout",

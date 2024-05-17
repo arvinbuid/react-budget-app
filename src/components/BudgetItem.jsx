@@ -6,7 +6,7 @@ export const BudgetItem = ({budget}) => {
 
   return (
     <section>
-      <div className='flex flex-col gap-4 border-4 rounded-lg border-blue-500 w-[300px] h-auto px-4 py-4'>
+      <div className='flex flex-col gap-12 border-4 rounded-lg border-blue-500 w-[540px] h-[200px] px-6 py-4'>
         <div className='flex justify-between text-md font-bold'>
           <p>{name}</p>
           <p>

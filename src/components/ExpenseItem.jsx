@@ -2,7 +2,7 @@ import {Link, useFetcher} from "react-router-dom";
 import {formatCurrency, formatDate, getAllMatchingItems} from "../helpers";
 import {TrashIcon} from "@heroicons/react/16/solid";
 
-export const ExpenseItem = ({expense}) => {
+export const ExpenseItem = ({expense, showBudget}) => {
   // fetcher
   const fetcher = useFetcher();
 
@@ -17,12 +17,16 @@ export const ExpenseItem = ({expense}) => {
       <td className='px-4 py-4 w-full text-center'>{expense.name}</td>
       <td className='px-4 '>{formatCurrency(expense.amount)}</td>
       <td className='px-4'>{formatDate(expense.createdAt)}</td>
+      {showBudget && (
+        <td>
+          <Link to={`/budget/${budget.id}`}>
+            <span>{budget.name}</span>
+          </Link>
+        </td>
+      )}
+
       <td>
-        <Link to={`/budget/${budget.id}`}>
-          <span>{budget.name}</span>
-        </Link>
-      </td>
-      <td>
+        {/* delete expense */}
         <fetcher.Form method='post'>
           <input type='hidden' name='_action' value='deleteExpense' />
           <input type='hidden' name='expenseId' value={expense.id} />
