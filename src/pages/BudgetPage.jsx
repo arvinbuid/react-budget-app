@@ -75,7 +75,7 @@ export const BudgetPage = () => {
           <span className='text-4xl font-bold text-black'> Overview</span>
         </h1>
         <div className='flex flex-col items-center'>
-          <BudgetItem budget={budget} />
+          <BudgetItem budget={budget} showDelete={true}/>
           <AddExpenseForm budgets={[budget]} />
         </div>
       </div>
