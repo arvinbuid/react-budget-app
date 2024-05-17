@@ -1,7 +1,11 @@
-import {Link} from "react-router-dom";
+import {Link, useFetcher} from "react-router-dom";
 import {formatCurrency, formatDate, getAllMatchingItems} from "../helpers";
+import {TrashIcon} from "@heroicons/react/16/solid";
 
 export const ExpenseItem = ({expense}) => {
+  // fetcher
+  const fetcher = useFetcher();
+
   const budget = getAllMatchingItems({
     category: "budgets",
     key: "id",
@@ -14,7 +18,22 @@ export const ExpenseItem = ({expense}) => {
       <td className='px-4 '>{formatCurrency(expense.amount)}</td>
       <td className='px-4'>{formatDate(expense.createdAt)}</td>
       <td>
-        <Link to={`/budget/${budget.id}`} ><span>{budget.name}</span></Link>
+        <Link to={`/budget/${budget.id}`}>
+          <span>{budget.name}</span>
+        </Link>
+      </td>
+      <td>
+        <fetcher.Form method='post'>
+          <input type='hidden' name='_action' value='deleteExpense' />
+          <input type='hidden' name='expenseId' value={expense.id} />
+          <button
+            type='submit'
+            className='bg-red-500 px-4 py-2 text-slate-100 rounded-sm'
+            aria-label={`Delete ${expense.name} expense`}
+          >
+            <TrashIcon width={16} />
+          </button>
+        </fetcher.Form>
       </td>
     </>
   );
