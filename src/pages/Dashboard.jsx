@@ -107,8 +107,8 @@ export const Dashboard = () => {
 
                     {/* Table */}
                     {expenses && expenses.length > 0 && (
-                      <div className='w-[50%]'>
-                        <h2 className='text-4xl font-bold mb-[50px]'>Recent Expenses</h2>
+                      <div className='w-full'>
+                        <h2 className='text-4xl font-bold mt-[20px] mb-[45px]'>Recent Expenses</h2>
                         <Table
                           expenses={expenses.sort((a, b) => b.createdAt - a.createdAt).slice(0, 8)}
                         />

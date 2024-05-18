@@ -7,10 +7,10 @@ export const BudgetItem = ({budget, showDelete}) => {
   const spent = calculateSpentByBudget(id);
 
   return (
-    <div className='flex 2xs:px-2 md:px-0'>
-      <div className='flex flex-col gap-12 border-4 rounded-lg  border-blue-500 px-6 py-4 w-[600px]  h-[220px]'>
+    <div className='flex w-full sm:w-[610px] px-4 sm:px-0'>
+      <div className='flex flex-col gap-12 border-4 rounded-lg  border-blue-500 px-6 py-4 w-[600px] h-[240px] lg:h-[220px]'>
         <div className='flex justify-between text-md font-bold'>
-          <p className='text-3xl font-bold'>{name}</p>
+          <p className='text-lg lg:text-3xl font-bold'>{name}</p>
           <p>
             {formatCurrency(amount)} <br />
             <span className='font-normal text-sm'>Budgeted</span>

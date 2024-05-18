@@ -11,11 +11,11 @@ export const Nav = ({userName}) => {
         <NavLink to='/'>
           <div className='flex items-center'>
             <div>
-              <CurrencyDollarIcon className='size-10 lg:size-6 text-blue-500 mr-1' />
+              <CurrencyDollarIcon className='size-10 lg:size-9 text-blue-500 mr-1' />
             </div>
 
-            <span className='text-2xl font-semibold hidden lg:block'>Budget</span>
-            <p className='text-2xl text-blue-700 font-bold hidden lg:block'>App</p>
+            <span className='text-3xl font-semibold hidden lg:block'>Budget</span>
+            <p className='text-3xl text-blue-700 font-bold hidden lg:block'>App</p>
           </div>
         </NavLink>
 
@@ -31,7 +31,7 @@ export const Nav = ({userName}) => {
           >
             <button className='text-slate-100 bg-red-600 px-4 py-3 hover:bg-red-700 rounded-sm'>
               <div className='flex items-center gap-1'>
-                <span className='text-sm'>Delete user</span>
+                <span className='hidden sm:block text-sm'>Delete user</span>
                 <TrashIcon className='size-4' />
               </div>
             </button>

@@ -68,28 +68,29 @@ export const BudgetPage = () => {
   const {budget, expenses} = useLoaderData();
 
   return (
-    <div className='w-screen h-auto '>
-      <div className='flex flex-col w-[600px] m-auto'>
-        <h1 className='text-4xl font-bold text-blue-600 mb-[30px]'>
+    <div className='w-full flex justify-center'>
+      <div className='flex flex-col w-full max-w-4xl rounded-lg p-4 sm:p-6 lg:p-8'>
+        <h1 className='text-3xl sm:text-4xl font-bold text-blue-600 mb-6'>
           {budget.name}
-          <span className='text-4xl font-bold text-black'> Overview</span>
+          <span className='text-3xl sm:text-4xl font-bold text-black'> Overview</span>
         </h1>
         <div className='flex flex-col items-center'>
-          <BudgetItem budget={budget} showDelete={true}/>
+          <BudgetItem budget={budget} showDelete={true} />
           <AddExpenseForm budgets={[budget]} />
         </div>
-      </div>
-
-      <div className='flex justify-center '>
-        {expenses && expenses.length && (
-          <div className='w-[600px]'>
-            <h1 className='text-4xl font-bold text-black mb-[30px]'>
-              <span className='text-blue-600'>{budget.name} </span>
-              Expenses
-            </h1>
-            <Table expenses={expenses} showBudget={false} />
-          </div>
-        )}
+        <div className='flex justify-center mt-6'>
+          {expenses && expenses.length && (
+            <div className='w-full'>
+              <h1 className='text-3xl sm:text-4xl font-bold text-black mb-6'>
+                <span className='text-blue-600'>{budget.name} </span>
+                Expenses
+              </h1>
+              <div className='overflow-x-auto'>
+                <Table expenses={expenses} showBudget={false} />
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
