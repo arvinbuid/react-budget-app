@@ -22,7 +22,7 @@ export const AddBudgetForm = () => {
     <div className='mt-[36px] flex 2xs:px-2 md:px-0'>
       <div className='w-[610px] rounded-2xl shadow-xl flex items-center justify-center py-4'>
         <div className='w-[97%] h-auto border-dashed border-2 border-black rounded-2xl flex flex-col px-6'>
-          <p className='font-bold text-xl mt-[12px]'>Create budget</p>
+          <p className='font-bold text-xl mt-[12px]'>Create Budget</p>
 
           <fetcher.Form method='post' ref={formRef} className='flex flex-col gap-4 py-4'>
             {/* Budget Name */}

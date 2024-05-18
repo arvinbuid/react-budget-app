@@ -7,7 +7,7 @@ export const BudgetItem = ({budget, showDelete}) => {
   const spent = calculateSpentByBudget(id);
 
   return (
-    <div className='flex w-full sm:w-[610px] px-4 sm:px-0'>
+    <div className='flex w-full sm:w-[610px] px-4 sm:px-0 mb-2'>
       <div className='flex flex-col gap-12 border-4 rounded-lg  border-blue-500 px-6 py-4 w-[600px] h-[240px] lg:h-[220px]'>
         <div className='flex justify-between text-md font-bold'>
           <p className='text-lg lg:text-3xl font-bold'>{name}</p>
@@ -24,6 +24,8 @@ export const BudgetItem = ({budget, showDelete}) => {
             <small>{formatCurrency(spent)} spent</small>
             <small>{formatCurrency(amount - spent)} remaining</small>
           </div>
+
+          {/* Show a delete button inside individual budget page or show view details when inside dashboard */}
           {showDelete ? (
             <Form
               method='post'
