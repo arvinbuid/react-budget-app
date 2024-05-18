@@ -101,7 +101,7 @@ export const AddExpenseForm = ({budgets}) => {
                   ) : (
                     <>
                       <p>Create Expense</p>
-                      <PlusCircleIcon className='size-4' />
+                      <PlusCircleIcon className='hidden sm:block size-4' />
                     </>
                   )}
                 </button>

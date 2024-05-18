@@ -110,7 +110,7 @@ export const ExpensePage = ({}) => {
                   ) : (
                     <>
                       <p>Edit Expense</p>
-                      <CheckCircleIcon className='size-4' />
+                      <CheckCircleIcon className='size-4 hidden sm:block' />
                     </>
                   )}
                 </button>

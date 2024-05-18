@@ -35,7 +35,7 @@ export const Intro = () => {
             <button className='text-slate-100 bg-black px-4 py-2 rounded-sm w-full max-w-xs lg:max-w-[160px]'>
               <div className='flex items-center justify-center lg:justify-start gap-2'>
                 <span className='text-sm'>Create Account</span>
-                <UserPlusIcon className='w-4 h-4' />
+                <UserPlusIcon className='hidden sm:block w-4 h-4' />
               </div>
             </button>
           </div>

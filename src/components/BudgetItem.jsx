@@ -43,7 +43,7 @@ export const BudgetItem = ({budget, showDelete}) => {
               flex gap-2 px-4 py-2 bg-red-600 text-white items-center hover:bg-red-700 rounded-md'
                 >
                   <span>Delete Budget</span>
-                  <TrashIcon width={20} />
+                  <TrashIcon width={20} className='hidden sm:block' />
                 </button>
               </div>
             </Form>
@@ -52,7 +52,7 @@ export const BudgetItem = ({budget, showDelete}) => {
               <div className='w-full flex justify-center '>
                 <button className='flex items-center gap-2 text-slate-100 px-4 py-2 bg-red-600 hover:bg-red-700 rounded-md'>
                   <span>View Details</span>
-                  <BanknotesIcon width={20} />
+                  <BanknotesIcon width={20} className='hidden sm:block' />
                 </button>
               </div>
             </Link>

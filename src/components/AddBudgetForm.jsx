@@ -73,7 +73,7 @@ export const AddBudgetForm = () => {
                 ) : (
                   <>
                     <p>Create budget</p>
-                    <CurrencyDollarIcon className='size-4' />
+                    <CurrencyDollarIcon className='hidden sm:block size-4' />
                   </>
                 )}
               </button>
