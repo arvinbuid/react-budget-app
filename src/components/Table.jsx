@@ -3,7 +3,7 @@ import {ExpenseItem} from "./ExpenseItem";
 export const Table = ({expenses, showBudget = true}) => {
   return (
     <section className='overflow-x-auto sm:overflow-x-visible'>
-      <table className='w-full min-w-full divide-y divide-gray-200 bg-white shadow-md sm:rounded-lg'>
+      <table className='w-full min-w-full divide-y divide-gray-200 bg-white shadow-md sm:rounded-lg mb-6'>
         <thead className='text-md'>
           <tr>
             {["Name", "Amount", "Date", showBudget ? "Budget" : ""].map((i, index) => (

@@ -1,11 +1,10 @@
 import {Link, useFetcher} from "react-router-dom";
 import {formatCurrency, formatDate, getAllMatchingItems} from "../helpers";
-import {TrashIcon} from "@heroicons/react/16/solid";
+import {PencilSquareIcon, TrashIcon} from "@heroicons/react/16/solid";
 
 export const ExpenseItem = ({expense, showBudget}) => {
   // fetcher
   const fetcher = useFetcher();
-
   const budget = getAllMatchingItems({
     category: "budgets",
     key: "id",
@@ -28,17 +27,37 @@ export const ExpenseItem = ({expense, showBudget}) => {
         </td>
       )}
       <td className='px-6 py-4 text-center'>
-        <fetcher.Form method='post'>
-          <input type='hidden' name='_action' value='deleteExpense' />
-          <input type='hidden' name='expenseId' value={expense.id} />
-          <button
-            type='submit'
-            className='bg-red-500 px-4 py-2 text-slate-100 rounded-sm hover:bg-red-600'
-            aria-label={`Delete ${expense.name} expense`}
-          >
-            <TrashIcon width={16} />
-          </button>
-        </fetcher.Form>
+        <div className='flex gap-2'>
+          {/* Delete expense */}
+          <fetcher.Form method='post'>
+            <input type='hidden' name='_action' value='deleteExpense' />
+            <input type='hidden' name='expenseId' value={expense.id} />
+
+            <button
+              type='submit'
+              className='bg-red-500 px-4 py-2 text-slate-100 rounded-sm hover:bg-red-600'
+              aria-label={`Delete ${expense.name} expense`}
+            >
+              <TrashIcon width={16} />
+            </button>
+          </fetcher.Form>
+
+          {/* Edit expense */}
+          <fetcher.Form method='post'>
+            <input type='hidden' name='_action' value='editExpense' />
+            <input type='hidden' name='expenseId' value={expense.id} />
+
+            <Link to={`/expense/${expense.id}`}>
+              <button
+                type='submit'
+                className='bg-red-500 px-4 py-2 text-slate-100 rounded-sm hover:bg-red-600'
+                aria-label={`Edit ${expense.name} expense`}
+              >
+                <PencilSquareIcon width={16} />
+              </button>
+            </Link>
+          </fetcher.Form>
+        </div>
       </td>
     </>
   );

@@ -69,7 +69,7 @@ export async function dashboardAction({request}) {
         id: values.expenseId,
       });
 
-      return toast.success(`Expense deleted`);
+      return toast.success(`Expense deleted.`);
     } catch (error) {
       throw new Error("There was a problem deleting your expense.");
     }
@@ -99,7 +99,7 @@ export const Dashboard = () => {
 
                   <div className='grid grid-cols-1 lg:flex flex-col gap-6 '>
                     <h2 className='text-4xl font-bold mb-[24px]'>Existing Budgets</h2>
-                    <div className="flex flex-col gap-2">
+                    <div className='flex flex-col gap-2'>
                       {budgets.map((budget) => (
                         <BudgetItem key={budget.id} budget={budget} />
                       ))}

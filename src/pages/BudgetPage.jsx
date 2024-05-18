@@ -23,7 +23,7 @@ export async function budgetLoader({params}) {
 
   // display error message if no budget exists
   if (!budget) {
-    throw new Error("The budget the you're looking for does not exists.");
+    throw new Error("The budget that you're looking for does not exists.");
   }
 
   return {budget, expenses};
@@ -70,7 +70,7 @@ export const BudgetPage = () => {
   return (
     <div className='w-full flex justify-center'>
       <div className='flex flex-col w-full max-w-4xl rounded-lg p-4 sm:p-6 lg:p-8'>
-        <h1 className='text-3xl sm:text-4xl font-bold text-blue-600 mb-6'>
+        <h1 className='text-3xl sm:text-4xl font-bold text-blue-600 mb-12'>
           {budget.name}
           <span className='text-3xl sm:text-4xl font-bold text-black'> Overview</span>
         </h1>
@@ -79,7 +79,7 @@ export const BudgetPage = () => {
           <AddExpenseForm budgets={[budget]} />
         </div>
         <div className='flex justify-center mt-6'>
-          {expenses && expenses.length && (
+          {expenses && expenses.length ? (
             <div className='w-full'>
               <h1 className='text-3xl sm:text-4xl font-bold text-black mb-6'>
                 <span className='text-blue-600'>{budget.name} </span>
@@ -89,6 +89,8 @@ export const BudgetPage = () => {
                 <Table expenses={expenses} showBudget={false} />
               </div>
             </div>
+          ) : (
+            <div></div>
           )}
         </div>
       </div>

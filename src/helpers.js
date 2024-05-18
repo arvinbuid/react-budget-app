@@ -1,10 +1,5 @@
 export const delaySubmit = () => new Promise((res) => setTimeout(res, Math.random() * 2000));
 
-const generateRandomColor = () => {
-  const existingBudgetLength = fetchData("budgets")?.length ?? 0;
-  return `${existingBudgetLength * 34} 65% 50%`;
-};
-
 // local storage functions
 export const fetchData = (key) => {
   return JSON.parse(localStorage.getItem(key));
@@ -39,7 +34,7 @@ export const createBudget = ({name, amount}) => {
   return localStorage.setItem("budgets", JSON.stringify([...existingBudgets, newItem]));
 };
 
-// create budget
+// create expense
 export const createExpense = ({name, amount, budgetId}) => {
   const newItem = {
     id: crypto.randomUUID(),
@@ -51,6 +46,16 @@ export const createExpense = ({name, amount, budgetId}) => {
   // add newItem into localstorage
   const existingExpenses = fetchData("expenses") ?? [];
   return localStorage.setItem("expenses", JSON.stringify([...existingExpenses, newItem]));
+};
+
+// edit item
+export const editItem = ({key, id, newData}) => {
+  const existingData = fetchData(key);
+  if (!existingData) return;
+
+  const updatedData = existingData.map((item) => (item.id === id ? {...item, ...newData} : item));
+
+  localStorage.setItem(key, JSON.stringify(updatedData));
 };
 
 // total spent by budget
