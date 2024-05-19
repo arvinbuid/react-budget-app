@@ -20,7 +20,7 @@ export const BudgetItem = ({budget, showDelete}) => {
           <progress max={amount} value={spent} className='w-full rounded-full custom-progress'>
             {formatPercentage(spent / amount)}
           </progress>
-          <div className='flex justify-between mb-3'>
+          <div className='flex justify-between mb-3 w-full text-sm md:text-lg'>
             <small>{formatCurrency(spent)} spent</small>
             <small>{formatCurrency(amount - spent)} remaining</small>
           </div>
@@ -49,7 +49,7 @@ export const BudgetItem = ({budget, showDelete}) => {
             </Form>
           ) : (
             <Link to={`/budget/${id}`}>
-              <div className='w-full flex justify-center '>
+              <div className='w-full flex justify-center'>
                 <button className='flex items-center gap-2 text-slate-100 px-4 py-2 bg-red-600 hover:bg-red-700 rounded-md'>
                   <span>View Details</span>
                   <BanknotesIcon width={20} className='hidden sm:block' />

@@ -69,7 +69,7 @@ export const BudgetPage = () => {
 
   return (
     <div className='w-full flex justify-center'>
-      <div className='flex flex-col w-full max-w-4xl rounded-lg p-4 sm:p-6 lg:p-8'>
+      <div className='flex flex-col w-full max-w-4xl rounded-lg px-4'>
         <h1 className='text-3xl sm:text-4xl font-bold text-blue-600 mb-12'>
           {budget.name}
           <span className='text-3xl sm:text-4xl font-bold text-black'> Overview</span>

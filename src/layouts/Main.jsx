@@ -18,13 +18,11 @@ export const Main = () => {
   const {userName} = useLoaderData();
 
   return (
-    <section className='w-screen h-screen overflow-x-hidden'>
-      <main className='flex flex-col justify-center items-center px-4'>
-        <Nav userName={userName} />
-        <ToastContainer />
-        <Outlet />
-        {/* <Footer /> */}
-      </main>
-    </section>
+    <main>
+      <Nav userName={userName} />
+      <ToastContainer />
+      <Outlet />
+      {/* <Footer /> */}
+    </main>
   );
 };

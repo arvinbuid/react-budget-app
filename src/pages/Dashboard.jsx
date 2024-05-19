@@ -80,7 +80,7 @@ export const Dashboard = () => {
   const {userName, budgets, expenses} = useLoaderData();
 
   return (
-    <div className='w-screen h-auto px-12 m-auto'>
+    <div className='w-screen h-auto px-4'>
       <div className='w-full mt-[24px]'>
         {userName ? (
           <div className='w-[90%] flex flex-col m-auto'>
