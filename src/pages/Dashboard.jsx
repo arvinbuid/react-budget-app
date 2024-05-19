@@ -81,7 +81,7 @@ export const Dashboard = () => {
 
   return (
     <div className='w-screen h-auto px-4'>
-      <div className='w-full mt-[24px]'>
+      <div className='w-full mt-[50px]'>
         {userName ? (
           <div className='w-[90%] flex flex-col m-auto'>
             <h1 className='text-4xl font-bold'>

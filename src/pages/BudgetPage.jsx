@@ -68,11 +68,11 @@ export const BudgetPage = () => {
   const {budget, expenses} = useLoaderData();
 
   return (
-    <div className='w-full flex justify-center'>
+    <div className='w-full flex justify-center mt-10'>
       <div className='flex flex-col w-full max-w-4xl rounded-lg px-4'>
         <h1 className='text-3xl sm:text-4xl font-bold text-blue-600 mb-12'>
           {budget.name}
-          <span className='text-3xl sm:text-4xl font-bold text-black'> Overview</span>
+          <span className='text-3xl sm:text-4xl font-bold text-black '> Overview</span>
         </h1>
         <div className='flex flex-col items-center'>
           <BudgetItem budget={budget} showDelete={true} />

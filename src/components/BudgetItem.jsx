@@ -20,7 +20,7 @@ export const BudgetItem = ({budget, showDelete}) => {
           <progress max={amount} value={spent} className='w-full rounded-full custom-progress'>
             {formatPercentage(spent / amount)}
           </progress>
-          <div className='flex justify-between mb-3 w-full text-sm md:text-lg'>
+          <div className='flex justify-between mb-6 md:mb-1 w-full text-sm md:text-lg'>
             <small>{formatCurrency(spent)} spent</small>
             <small>{formatCurrency(amount - spent)} remaining</small>
           </div>
